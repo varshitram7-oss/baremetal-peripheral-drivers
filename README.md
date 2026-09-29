@@ -9,7 +9,6 @@
 *Note: the live demo uses the driver sources unmodified; only an Arduino setup()/loop() entry shim was added for the simulator.*
 
 
-
 A modular, high-performance **Bare-Metal Peripheral Driver Suite** written from scratch in Embedded C **without vendor HAL libraries** (Hardware Abstraction Layers). Demonstrates direct memory-mapped register manipulation, interrupt service routines (**ISRs**), lock-free **Circular Ring Buffers (FIFO)**, and hardware timer configurations for **PWM generation**.
 
 ---
@@ -155,3 +154,20 @@ avr-objcopy -O ihex -R .eeprom drivers.elf drivers.hex
 - **LinkedIn:** [linkedin.com/in/ram-varshit-ece](https://www.linkedin.com/in/ram-varshit-ece/)  
 - **GitHub:** [github.com/varshitram7-oss](https://github.com/varshitram7-oss)  
 - **Email:** ramvarshit18@gmail.com
+
+### Building on Windows
+
+1. Install the [Arduino IDE](https://www.arduino.cc/en/software) — it bundles
+   the `avr-gcc` toolchain.
+2. Add the toolchain to your `PATH`. With Arduino IDE 1.x it lives under
+   `C:\Program Files (x86)\Arduino\hardware\tools\avr\bin`
+   (adjust for your install location / IDE 2.x packages path).
+3. From a terminal in the repo folder:
+
+```bat
+avr-gcc -mmcu=atmega328p -DF_CPU=16000000UL -Os -o firmware.elf ^
+  main.c uart_driver.c spi_driver.c timer_driver.c
+avr-objcopy -O ihex firmware.elf firmware.hex
+```
+
+`firmware.hex` can be flashed with `avrdude` or the Arduino IDE's uploader.
