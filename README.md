@@ -4,6 +4,12 @@
 [![Architecture: AVR (ATmega328P)](https://img.shields.io/badge/Architecture-AVR%20(ATmega328P)-green.svg)](https://www.microchip.com/en-us/technology/avr-8-bit-microcontrollers)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
+▶️ **[Try it live on Wokwi](https://wokwi.com/projects/476481937910126593)** — runs the drivers in a browser simulation (Arduino Uno). Type in the serial monitor for the UART echo; the LED sweeps with the PWM duty cycle.
+
+*Note: the live demo uses the driver sources unmodified; only an Arduino setup()/loop() entry shim was added for the simulator.*
+
+
+
 A modular, high-performance **Bare-Metal Peripheral Driver Suite** written from scratch in Embedded C **without vendor HAL libraries** (Hardware Abstraction Layers). Demonstrates direct memory-mapped register manipulation, interrupt service routines (**ISRs**), lock-free **Circular Ring Buffers (FIFO)**, and hardware timer configurations for **PWM generation**.
 
 ---
