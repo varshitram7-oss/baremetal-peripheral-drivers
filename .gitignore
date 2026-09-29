@@ -1,0 +1,11 @@
+# AVR-GCC build artifacts
+*.elf
+*.hex
+*.o
+*.map
+*.lst
+*.sym
+*.eep
+
+# Build output directories
+build/
